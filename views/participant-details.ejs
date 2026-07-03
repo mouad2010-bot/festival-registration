@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+
+    <%- include("partials/head") %>
+
+</head>
+
+<body>
+
+<%- include("partials/navbar") %>
+
+<section class="participant-page">
+
+<div class="container">
+
+<div class="participant-card">
+
+<div class="participant-header">
+
+<h1>
+
+بيانات المشارك
+
+</h1>
+
+</div>
+
+<div class="participant-content">
+
+<div class="participant-info">
+
+<p>
+
+<strong>الاسم:</strong>
+
+<%= participant.fullName %>
+
+</p>
+
+<p>
+
+<strong>البريد الإلكتروني:</strong>
+
+<%= participant.email %>
+
+</p>
+
+<p>
+
+<strong>الهاتف:</strong>
+
+<%= participant.phone %>
+
+</p>
+
+<p>
+
+<strong>المدينة:</strong>
+
+<%= participant.city %>
+
+</p>
+
+<p>
+
+<strong>العمر:</strong>
+
+<%= participant.age %>
+
+</p>
+
+<p>
+
+<strong>الجنس:</strong>
+
+<%= participant.gender %>
+
+</p>
+
+<p>
+
+<strong>رقم التذكرة:</strong>
+
+<%= participant.ticketId %>
+
+</p>
+
+<p>
+
+<strong>تاريخ التسجيل:</strong>
+
+<%= participant.createdAt %>
+
+</p>
+
+<p>
+
+<strong>وقت الدخول:</strong>
+
+<%= participant.checkInTime || "لم يتم الدخول بعد" %>
+
+</p>
+
+<p>
+
+<strong>الحالة:</strong>
+
+<% if(participant.used){ %>
+
+<span class="status-used">
+
+تم استخدامها
+
+</span>
+
+<% } else { %>
+
+<span class="status-new">
+
+صالحة
+
+</span>
+
+<% } %>
+
+</p>
+
+</div>
+
+<div class="participant-qr">
+
+<img
+
+src="<%= participant.qrCode %>"
+
+alt="QR">
+
+</div>
+
+</div>
+
+<div class="participant-buttons">
+
+<a
+
+href="/admin"
+
+class="btn">
+
+رجوع
+
+</a>
+
+<a
+
+href="/admin/edit/<%= participant.id %>"
+
+class="btn btn-edit">
+
+تعديل
+
+</a>
+
+<button
+
+id="printTicket"
+
+class="btn btn-print">
+
+طباعة
+
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<script src="/js/app.js"></script>
+
+</body>
+
+</html>

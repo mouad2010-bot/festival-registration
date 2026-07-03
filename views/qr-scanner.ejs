@@ -1,0 +1,125 @@
+
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+
+    <%- include("partials/head") %>
+
+    <title>ماسح QR - مهرجان هويات الدولي</title>
+
+</head>
+
+<body>
+
+<%- include("partials/navbar") %>
+
+<section class="scanner-page">
+
+<div class="container">
+
+<div class="scanner-card">
+
+<h1 class="section-title">
+
+ماسح التذاكر
+
+</h1>
+
+<p class="scanner-description">
+
+وجّه الكاميرا نحو رمز QR الخاص بالتذكرة.
+
+</p>
+
+<!-- ======================================= -->
+
+<div id="reader">
+
+<!-- سيتم تشغيل الكاميرا هنا -->
+
+</div>
+
+<!-- ======================================= -->
+
+<div id="scanResult" class="scan-result">
+
+بانتظار مسح أول تذكرة...
+
+</div>
+
+<!-- ======================================= -->
+
+<div class="scanner-legend">
+
+<div class="legend-item">
+
+<span class="legend-color valid"></span>
+
+<span>
+
+التذكرة صالحة
+
+</span>
+
+</div>
+
+<div class="legend-item">
+
+<span class="legend-color used"></span>
+
+<span>
+
+التذكرة مستخدمة مسبقًا
+
+</span>
+
+</div>
+
+<div class="legend-item">
+
+<span class="legend-color invalid"></span>
+
+<span>
+
+التذكرة غير صالحة
+
+</span>
+
+</div>
+
+</div>
+
+<!-- ======================================= -->
+
+<div class="scanner-buttons">
+
+<a
+
+href="/admin"
+
+class="btn">
+
+العودة إلى لوحة التحكم
+
+</a>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- مكتبة قراءة QR -->
+
+<script src="https://unpkg.com/html5-qrcode"></script>
+
+<!-- سكربت المشروع -->
+
+<script src="/js/scanner.js"></script>
+
+</body>
+
+</html>

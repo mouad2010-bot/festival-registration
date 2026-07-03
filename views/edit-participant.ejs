@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+
+<%- include("partials/head") %>
+
+</head>
+
+<body>
+
+<%- include("partials/navbar") %>
+
+<section class="edit-page">
+
+<div class="container">
+
+<div class="edit-card">
+
+<h1>
+
+تعديل بيانات المشارك
+
+</h1>
+
+<form
+
+method="POST"
+
+action="/admin/edit/<%= participant.id %>">
+
+<div class="form-group">
+
+<label>
+
+الاسم الكامل
+
+</label>
+
+<input
+
+type="text"
+
+name="fullName"
+
+value="<%= participant.fullName %>"
+
+required>
+
+</div>
+
+<div class="form-group">
+
+<label>
+
+البريد الإلكتروني
+
+</label>
+
+<input
+
+type="email"
+
+name="email"
+
+value="<%= participant.email %>"
+
+required>
+
+</div>
+
+<div class="form-group">
+
+<label>
+
+الهاتف
+
+</label>
+
+<input
+
+type="text"
+
+name="phone"
+
+value="<%= participant.phone %>"
+
+required>
+
+</div>
+
+<div class="form-group">
+
+<label>
+
+المدينة
+
+</label>
+
+<input
+
+type="text"
+
+name="city"
+
+value="<%= participant.city %>"
+
+required>
+
+</div>
+
+<div class="form-group">
+
+<label>
+
+العمر
+
+</label>
+
+<input
+
+type="number"
+
+name="age"
+
+value="<%= participant.age %>"
+
+required>
+
+</div>
+
+<div class="form-group">
+
+<label>
+
+الجنس
+
+</label>
+
+<select
+
+name="gender">
+
+<option
+
+<%= participant.gender==="ذكر"?"selected":"" %>>
+
+ذكر
+
+</option>
+
+<option
+
+<%= participant.gender==="أنثى"?"selected":"" %>>
+
+أنثى
+
+</option>
+
+</select>
+
+</div>
+
+<button
+
+type="submit"
+
+class="btn">
+
+حفظ التعديلات
+
+</button>
+
+</form>
+
+</div>
+
+</div>
+
+</section>
+
+</body>
+
+</html>
