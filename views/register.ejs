@@ -67,6 +67,11 @@ class="register-form"
 
 >
 
+<input
+type="hidden"
+name="lang"
+value="ar">
+
 <div class="form-group">
 
 <label>
@@ -228,6 +233,13 @@ type="checkbox">
 
 <!-- ========================= -->
 
+<div
+class="cf-turnstile"
+data-sitekey="0x4AAAAAADvMpj-ppH8xh3sc">
+</div>
+
+<br>
+
 <button
 
 class="submit-btn"
@@ -237,6 +249,12 @@ type="submit">
 تسجيل مجاني
 
 </button>
+
+<script
+src="https://challenges.cloudflare.com/turnstile/v0/api.js"
+async
+defer>
+</script>
 
 </form>
 

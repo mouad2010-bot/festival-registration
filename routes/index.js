@@ -38,6 +38,18 @@ router.get("/", (req, res) => {
 
         });
 
+        router.get("/en", (req, res) => {
+
+    res.render("index-en");
+
+});
+
+router.get("/fr", (req, res) => {
+
+    res.render("index-fr");
+
+});
+
     });
 
 });

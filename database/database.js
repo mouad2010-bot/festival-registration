@@ -160,9 +160,9 @@ db.get(
 
             console.log("Admin Created");
 
-            console.log("Username : admin");
+            console.log("Username : identities.festival");
 
-            console.log("Password : admin123");
+            console.log("Password : 123qwerasd");
 
             console.log("================================");
 

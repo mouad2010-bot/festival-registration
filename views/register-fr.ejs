@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+
+    <%- include("partials/head") %>
+
+</head>
+
+<body>
+
+<%- include("partials/navbar") %>
+
+<section class="register-page">
+
+<div class="container">
+
+<div class="register-container">
+
+<h1 class="register-title">
+
+Inscription au Festival international des identités
+
+</h1>
+
+<p class="text-center mb-20">
+
+L'inscription est gratuite et le nombre de participants est limité à 500.
+
+</p>
+
+<!-- ========================= -->
+
+<% if(error){ %>
+
+<div class="message error">
+
+<%= error %>
+
+</div>
+
+<% } %>
+
+<!-- ========================= -->
+
+<div class="message warning">
+
+Places restantes :
+
+<strong>
+
+<%= remainingSeats %>
+
+</strong>
+
+</div>
+
+<!-- ========================= -->
+
+<form
+
+action="/register"
+
+method="POST"
+
+class="register-form"
+
+>
+
+<input
+type="hidden"
+name="lang"
+value="fr">
+
+<div class="form-group">
+
+<label>
+
+nom et prénom
+
+</label>
+
+<input
+
+type="text"
+
+name="fullName"
+
+required>
+
+</div>
+
+<!-- ========================= -->
+
+<div class="form-group">
+
+<label>
+
+e-mail
+
+</label>
+
+<input
+
+type="email"
+
+name="email"
+
+required>
+
+</div>
+
+<!-- ========================= -->
+
+<div class="form-group">
+
+<label>
+
+numéro de téléphone
+
+</label>
+
+<input
+
+type="tel"
+
+name="phone"
+
+required>
+
+</div>
+
+<!-- ========================= -->
+
+<div class="form-group">
+
+<label>
+
+Ville
+
+</label>
+
+<input
+
+type="text"
+
+name="city"
+
+required>
+
+</div>
+
+<!-- ========================= -->
+
+<div class="form-group">
+
+<label>
+
+l'âge
+
+</label>
+
+<input
+
+type="number"
+
+name="age"
+
+min="5"
+
+max="100"
+
+required>
+
+</div>
+
+<!-- ========================= -->
+
+<div class="form-group">
+
+<label>
+
+Sexe
+
+</label>
+
+<select
+
+name="gender"
+
+required>
+
+<option value="">
+
+Choisir
+
+</option>
+
+<option>
+
+mâle
+
+</option>
+
+<option>
+
+féminin
+
+</option>
+
+</select>
+
+</div>
+
+<!-- ========================= -->
+
+<div class="form-group full">
+
+<label>
+
+J'accepte que mes données soient utilisées
+dans le seul but d'organiser le festival.
+
+</label>
+
+<input
+
+required
+
+type="checkbox">
+
+</div>
+
+<!-- ========================= -->
+
+<div
+class="cf-turnstile"
+data-sitekey="0x4AAAAAADvMpj-ppH8xh3sc">
+</div>
+
+<br>
+
+<button
+
+class="submit-btn"
+
+type="submit">
+
+Inscription gratuite
+
+</button>
+
+<script
+src="https://challenges.cloudflare.com/turnstile/v0/api.js"
+async
+defer>
+</script>
+
+</form>
+
+</div>
+
+</div>
+
+</section>
+
+<%- include("partials/footer") %>
+
+<script src="/js/app.js"></script>
+
+</body>
+
+</html>

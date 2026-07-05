@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+
+<html lang="ar" dir="rtl">
+
+<head>
+
+<%- include("partials/head") %>
+
+</head>
+
+<body>
+
+<section class="success-page">
+
+<div class="container">
+
+<div class="ticket">
+
+<div class="ticket-header">
+
+<h1>
+
+Registration successful
+
+</h1>
+
+<p>
+
+Welcome to the International Festival of Identities
+
+</p>
+
+</div>
+
+<div class="ticket-body">
+
+<div class="ticket-grid">
+
+<div class="ticket-info">
+
+<p>
+
+<strong>
+
+name:
+
+</strong>
+
+<%= participant.fullName %>
+
+</p>
+
+<p>
+
+<strong>
+
+E-mail:
+
+</strong>
+
+<%= participant.email %>
+
+</p>
+
+<p>
+
+<strong>
+
+Phone:
+
+</strong>
+
+<%= participant.phone %>
+
+</p>
+
+<p>
+
+<strong>
+
+City:
+
+</strong>
+
+<%= participant.city %>
+
+</p>
+
+<p>
+
+<strong>
+
+Ticket number:
+
+</strong>
+
+<%= participant.ticketId %>
+
+</p>
+
+</div>
+
+<div class="qr-area">
+
+<img
+
+src="<%= participant.qrCode %>"
+
+alt="QR Code">
+
+</div>
+
+</div>
+
+<div class="ticket-buttons">
+
+<button
+
+id="printTicket">
+
+print
+
+</button>
+
+<button
+
+id="downloadTicket">
+
+download
+
+</button>
+
+<a
+
+href="/">
+
+Home
+
+</a>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<script src="/js/app.js"></script>
+
+</body>
+
+</html>

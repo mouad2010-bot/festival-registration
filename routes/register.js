@@ -7,11 +7,14 @@
 
 const express = require("express");
 
+const axios = require("axios");
+
 const router = express.Router();
 
 const QRCode = require("qrcode");
 
 const { v4: uuid } = require("uuid");
+
 
 const {
 
@@ -49,6 +52,50 @@ router.get("/", (req, res) => {
 
 });
 
+router.get("/en", (req, res) => {
+
+    getRemainingSeats((err, remainingSeats) => {
+
+        if (err) {
+
+            return res.sendStatus(500);
+
+        }
+
+        res.render("register-en", {
+
+            remainingSeats,
+
+            error: null
+
+        });
+
+    });
+
+});
+
+router.get("/fr", (req, res) => {
+
+    getRemainingSeats((err, remainingSeats) => {
+
+        if (err) {
+
+            return res.sendStatus(500);
+
+        }
+
+        res.render("register-fr", {
+
+            remainingSeats,
+
+            error: null
+
+        });
+
+    });
+
+});
+
 /* ==========================================================
    استقبال التسجيل
 ========================================================== */
@@ -59,19 +106,21 @@ router.post("/", async (req, res) => {
 
         const {
 
-            fullName,
+    fullName,
 
-            email,
+    email,
 
-            phone,
+    phone,
 
-            city,
+    city,
 
-            age,
+    age,
 
-            gender
+    gender,
 
-        } = req.body;
+    lang
+
+} = req.body;
 
         /* ===========================
            تحقق من العدد
@@ -190,13 +239,19 @@ router.post("/", async (req, res) => {
 
                         }
 
-                        res.redirect(
+                        if (lang === "en") {
 
-                            "/register/success/" +
+    return res.redirect("/register/en/success/" + ticketId);
 
-                            ticketId
+    }
 
-                        );
+          if (lang === "fr")  {
+
+                        return res.redirect("/register/fr/success/" + ticketId);
+
+                    }
+
+                        return res.redirect("/register/success/" + ticketId);
 
                     }
 
@@ -222,56 +277,100 @@ router.post("/", async (req, res) => {
    صفحة نجاح التسجيل
 ========================================================== */
 
-router.get(
+/* ==========================================================
+   صفحة نجاح التسجيل (العربية)
+========================================================== */
 
-    "/success/:ticketId",
+router.get("/success/:ticketId", (req, res) => {
 
-    (req, res) => {
+    db.get(
 
-        db.get(
+        "SELECT * FROM registrations WHERE ticketId = ?",
 
-            `
+        [req.params.ticketId],
 
-            SELECT *
+        (err, participant) => {
 
-            FROM registrations
+            if (err || !participant) {
 
-            WHERE ticketId = ?
-
-            `,
-
-            [
-
-                req.params.ticketId
-
-            ],
-
-            (err, participant) => {
-
-                if (err || !participant) {
-
-                    return res.redirect("/");
-
-                }
-
-                res.render(
-
-                    "success",
-
-                    {
-
-                        participant
-
-                    }
-
-                );
+                return res.redirect("/");
 
             }
 
-        );
+            res.render("success", {
 
-    }
+                participant
 
-);
+            });
+
+        }
+
+    );
+
+});
+
+/* ==========================================================
+   Success Page (English)
+========================================================== */
+
+router.get("/en/success/:ticketId", (req, res) => {
+
+    db.get(
+
+        "SELECT * FROM registrations WHERE ticketId = ?",
+
+        [req.params.ticketId],
+
+        (err, participant) => {
+
+            if (err || !participant) {
+
+                return res.redirect("/en");
+
+            }
+
+            res.render("success-en", {
+
+                participant
+
+            });
+
+        }
+
+    );
+
+});
+
+/* ==========================================================
+   Page de succès (Français)
+========================================================== */
+
+router.get("/fr/success/:ticketId", (req, res) => {
+
+    db.get(
+
+        "SELECT * FROM registrations WHERE ticketId = ?",
+
+        [req.params.ticketId],
+
+        (err, participant) => {
+
+            if (err || !participant) {
+
+                return res.redirect("/fr");
+
+            }
+
+            res.render("success-fr", {
+
+                participant
+
+            });
+
+        }
+
+    );
+
+});
 
 module.exports = router;

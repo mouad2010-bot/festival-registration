@@ -122,7 +122,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
             alert(
 
-                "سيتم إضافة تحميل PDF لاحقًا."
+                "نعتذر لا يوجد تحميل PDF حاليا المرجو اخد لقطة شاشة لل QR Code الخاص بك وعدم اضاعته "
 
             );
 
@@ -131,3 +131,92 @@ document.addEventListener("DOMContentLoaded", () => {
     }
 
 });
+
+/* ===========================================
+   Hero Slider Fade
+=========================================== */
+
+const bg1 = document.querySelector(".hero-bg-1");
+const bg2 = document.querySelector(".hero-bg-2");
+
+if(bg1 && bg2){
+
+    const images = [
+
+        "/images/hero1.jpg",
+        "/images/hero2.jpg",
+        "/images/hero3.jpg",
+        "/images/hero4.jpg",
+        "/images/hero5.jpg",
+        "/images/hero6.jpg",
+        "/images/hero7.jpg",
+        "/images/hero8.jpg"
+
+    ];
+
+    let current = 0;
+
+    let showingFirst = true;
+
+    bg1.style.backgroundImage = `url('${images[0]}')`;
+
+    setInterval(()=>{
+
+        current++;
+
+        if(current >= images.length){
+
+            current = 0;
+
+        }
+
+        if(showingFirst){
+
+            bg2.style.backgroundImage = `url('${images[current]}')`;
+
+            bg2.style.opacity = "1";
+
+            bg1.style.opacity = "0";
+
+        }
+
+        else{
+
+            bg1.style.backgroundImage = `url('${images[current]}')`;
+
+            bg1.style.opacity = "1";
+
+            bg2.style.opacity = "0";
+
+        }
+
+        showingFirst = !showingFirst;
+
+    },3000);
+
+}
+
+/* ======================================
+   Language Menu
+====================================== */
+
+const languageBtn = document.querySelector(".language-btn");
+const languageDropdown = document.querySelector(".language-dropdown");
+
+if(languageBtn && languageDropdown){
+
+    languageBtn.addEventListener("click",(e)=>{
+
+        e.stopPropagation();
+
+        languageDropdown.classList.toggle("open");
+
+    });
+
+    document.addEventListener("click",()=>{
+
+        languageDropdown.classList.remove("open");
+
+    });
+
+}

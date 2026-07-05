@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <%- include("partials/head") %>
+</head>
+
+<body>
+
+<div class="login-box">
+
+<h2>تغيير بيانات الإدارة</h2>
+
+<form action="/auth/change-account" method="POST">
+
+<div class="form-group">
+<label>كلمة المرور الحالية</label>
+<input type="password" name="currentPassword" required>
+</div>
+
+<div class="form-group">
+    <label>اسم المستخدم الجديد (اختياري)</label>
+    <input
+        type="text"
+        name="newUsername"
+        placeholder="اتركه فارغًا إذا لا تريد تغييره">
+</div>
+
+<div class="form-group">
+    <label>كلمة المرور الجديدة (اختياري)</label>
+    <input
+        type="password"
+        name="newPassword"
+        placeholder="اتركها فارغة إذا لا تريد تغييرها">
+</div>
+
+<button type="submit">
+
+حفظ
+
+</button>
+
+</form>
+
+</div>
+
+</body>
+
+</html>
