@@ -108,7 +108,9 @@ app.use((req, res) => {
    Server
 ============================== */
 
-app.listen(PORT, () => {
+const HOST = "0.0.0.0";
+
+app.listen(PORT, HOST, () => {
 
     console.log("");
 
@@ -116,7 +118,7 @@ app.listen(PORT, () => {
 
     console.log("Festival Server Running");
 
-    console.log("http://localhost:" + PORT);
+    console.log(`Listening on ${HOST}:${PORT}`);
 
     console.log("====================================");
 
