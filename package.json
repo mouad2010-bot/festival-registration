@@ -14,7 +14,7 @@
     "sqlite",
     "qr"
   ],
-  "author": "YOUR NAME",
+  "author": "MOUAD AKELLAL",
   "license": "MIT",
   "dependencies": {
     "axios": "^1.18.1",
