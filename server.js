@@ -50,7 +50,7 @@ app.use(
 
         }),
 
-        secret: "CHANGE_THIS_SECRET",
+        secret: "0x4AAAAAADxSYujE2lLsUiPWCWSJWQHOoRA",
 
         resave: false,
 
